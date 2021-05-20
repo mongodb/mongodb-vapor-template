@@ -1,0 +1,1 @@
+# mongodb-vapor-template
