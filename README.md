@@ -13,20 +13,27 @@ vapor new MyProject --template https://github.com/mongodb/mongodb-vapor-template
 mongod --dbpath /data/path/here
 ```
 
-3. Initialize a new project from the command line:
+3. Load some sample data into the database:
+```
+mongo home --eval "db.kittens.insert([{name:\"roscoe\",color:\"orange\"},{name:\"chester\",color:\"tan\"}])"
+```
+
+4. Initialize a new project from the command line:
 ```
 vapor new MyProject --template https://github.com/mongodb/mongodb-vapor-template/
 ```
 
-4. Move into the project directory, and build and run the application (this might take a while on the first time):
+5. Move into the project directory, and build and run the application (this might take a while on the first time):
 ```
 cd MyProject
 swift build
 swift run
 ```
 
-5. Open `http://localhost:8080` to see your app in action!
+5. If using Leaf, go to `http://localhost:8080` to see your app in action and load a list of kittens! Else, you can run `curl http://localhost:8080` to see the resulting JSON.
 
+6. To add a new kitten: if using Leaf, use the form at `http://localhost:8080`. Else, you can
+add new data via `curl`: `curl -d "name=Bob&color=white" http://localhost:8080`. 
 ## Resources:
 * [MongoDBVapor README](https://github.com/mongodb/mongodb-vapor#readme)
 * [MongoDBVapor API documentation](https://mongodb.github.io/mongodb-vapor/)
