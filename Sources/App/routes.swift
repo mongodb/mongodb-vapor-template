@@ -3,9 +3,9 @@ import Vapor
 
 /// A type matching the structure of documents in the corresponding MongoDB collection.
 struct Kitten: Content {
-    var _id: BSONObjectID?
-    var name: String
-    var color: String
+    let _id: BSONObjectID?
+    let name: String
+    let color: String
 }
 
 extension Request {
