@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <title>Kittens</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/bson@^4/dist/bson.browser.umd.js"></script>
 </head>
 <body>
   
@@ -41,7 +42,12 @@
     $("\#add-btn").click(() => {
       var name = $("\#name").val();
       var color = $("\#color").val();
-      var data = JSON.stringify({
+      // Serialize request data to extended JSON. We use extended JSON
+      // both here, and for serializing/deserializing request data on
+      // the backend, in order to ensure all MongoDB type information
+      // is preserved.
+      // See: https://docs.mongodb.com/manual/reference/mongodb-extended-json
+      var data = EJSON.stringify({
         'name': name,
         'color': color
       })
