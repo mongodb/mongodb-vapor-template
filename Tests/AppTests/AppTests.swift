@@ -12,9 +12,9 @@ final class AppTests: XCTestCase {
         try app.mongoDB.configure("mongodb://localhost:27017")
 
         try app.test(.GET, "", afterResponse: { res in
-            XCTAssertEqual(res.status, .ok)
+            XCTAssertEqual(res.status, .ok){{^leaf}}
             // test that the extended JSON we get can be decoded into `Kitten`s.
-            XCTAssertNoThrow(try res.content.decode([Kitten].self))
+            XCTAssertNoThrow(try res.content.decode([Kitten].self)){{/leaf}}
         })
     }
 }
