@@ -47,7 +47,7 @@
       // the backend, in order to ensure all MongoDB type information
       // is preserved.
       // See: https://docs.mongodb.com/manual/reference/mongodb-extended-json
-      var data = EJSON.stringify({
+      var data = BSON.EJSON.stringify({
         'name': name,
         'color': color
       })
