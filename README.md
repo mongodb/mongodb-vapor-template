@@ -14,34 +14,36 @@ vapor new MyProject --template https://github.com/mongodb/mongodb-vapor-template
 cd MyProject
 ```
 
-3. Set up a MongoDB deployment to connect to. You can [install MongoDB](https://docs.mongodb.com/manual/installation/), and (in a new terminal window) start up a standalone server locally (this will run on the default host/port, `localhost:27017`):
+3. **If you're using Linux** The driver vendors and wraps the MongoDB C driver (`libmongoc`), which depends on a number of external C libraries when built in Linux environments. As a result, these libraries must be installed on your system in order to build the driver. To install those libraries, please follow the [instructions](http://mongoc.org/libmongoc/current/installing.html#prerequisites-for-libmongoc) from `libmongoc`'s documentation.
+
+4. Set up a MongoDB deployment to connect to. You can [install MongoDB](https://docs.mongodb.com/manual/installation/), and (in a new terminal window) start up a standalone server locally (this will run on the default host/port, `localhost:27017`):
 ```
 mongod --dbpath /data/path/here
 ```
 
 Alternatively, you can use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) to set up a fully managed MongoDB deployment in the cloud.
 
-4. If using Atlas, or a local host/port besides the default `localhost:27017`, set your MongoDB connection string via environment variable:
+5. If using Atlas, or a local host/port besides the default `localhost:27017`, set your MongoDB connection string via environment variable:
 ```
 export MONGODB_URI='connection-string-here'
 ```
 
-5. Load some sample data into the database via the MongoDB shell:
+6. Load some sample data into the database via the MongoDB shell:
 ```
 mongo $MONGODB_URI home --eval "db.kittens.insert([{name:\"roscoe\",color:\"orange\", createdAt: new Date()},{name:\"chester\",color:\"tan\", createdAt: new Date()}])"
 ```
 
 If using Atlas, you could also do this via [Atlas Data Explorer](https://docs.atlas.mongodb.com/data-explorer/).
 
-6. Build and run the application (this might take a while on the first time):
+7. Build and run the application (this might take a while on the first time):
 ```
 swift build
 swift run
 ```
 
-7. If using Leaf, go to `http://localhost:8080` to see your app in action and load a list of kittens! Else, you can run `curl http://localhost:8080` to see the resulting JSON.
+8. If using Leaf, go to `http://localhost:8080` to see your app in action and load a list of kittens! Else, you can run `curl http://localhost:8080` to see the resulting JSON.
 
-8. To add a new kitten: if using Leaf, use the form at `http://localhost:8080`. Else, you can
+9. To add a new kitten: if using Leaf, use the form at `http://localhost:8080`. Else, you can
 add new data via `curl`: `curl -d "name=Bob&color=white" http://localhost:8080`. 
 ## Resources:
 * [MongoDBVapor README](https://github.com/mongodb/mongodb-vapor#readme)
