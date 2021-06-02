@@ -13,11 +13,13 @@
 <tr>
     <th>Name</th>
     <th>Color</th>
+    <th>Created</th>
 </tr>
 #for(kitten in kittens):
  <tr>
      <td>#(kitten.name)</td>
      <td>#(kitten.color)</td>
+     <td>>#date(kitten.createdAt, "MM-dd-y HH:mm")</td>
  </tr>
 #endfor   
 </table>

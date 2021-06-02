@@ -6,6 +6,7 @@ struct Kitten: Content {
     let _id: BSONObjectID?
     let name: String
     let color: String
+    var createdAt: Date?
 }
 
 extension Request {
@@ -28,7 +29,8 @@ func routes(_ app: Application) throws {
 
     // A POST request will create a new kitten in the database.
     app.post { req -> EventLoopFuture<Response> in
-        let newKitten = try req.content.decode(Kitten.self)
+        var newKitten = try req.content.decode(Kitten.self)
+        newKitten.createdAt = Date()
         return req.kittenCollection.insertOne(newKitten)
             .map { _ in Response(status: .created) }
     }

@@ -28,7 +28,7 @@ export MONGODB_URI='connection-string-here'
 
 5. Load some sample data into the database via the MongoDB shell:
 ```
-mongo $MONGODB_URI home --eval "db.kittens.insert([{name:\"roscoe\",color:\"orange\"},{name:\"chester\",color:\"tan\"}])"
+mongo $MONGODB_URI home --eval "db.kittens.insert([{name:\"roscoe\",color:\"orange\", createdAt: new Date()},{name:\"chester\",color:\"tan\", createdAt: new Date()}])"
 ```
 
 If using Atlas, you could also do this via [Atlas Data Explorer](https://docs.atlas.mongodb.com/data-explorer/).
