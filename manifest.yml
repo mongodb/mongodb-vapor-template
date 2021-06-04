@@ -1,0 +1,33 @@
+name: MongoDB Vapor Template
+variables:
+  - name: leaf
+    description: Would you like to use Leaf?
+    type: bool
+files:
+  - file: Package.swift
+    dynamic: true
+  - folder: Sources
+    files:
+      - folder: Run
+        files:
+          - main.swift
+      - folder: App
+        files:
+          - file: configure.swift
+            dynamic: true
+          - file: routes.swift
+            dynamic: true
+  - folder: Tests
+    files:
+      - folder: AppTests
+        files:
+          - file: AppTests.swift
+            dynamic: true
+  - folder: Resources
+    if: leaf
+    files:
+      - folder: Views
+        files:
+          - file: index.leaf
+  - .gitignore
+  - README.md
