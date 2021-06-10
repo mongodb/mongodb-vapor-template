@@ -8,8 +8,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/vapor/vapor", .upToNextMajor(from: "4.7.0")),
-        // TODO fix version
-        .package(url: "https://github.com/mongodb/mongodb-vapor", .branch("main")){{#leaf}},
+        .package(url: "https://github.com/mongodb/mongodb-vapor", .exact("1.0.0-beta.0")){{#leaf}},
         .package(url: "https://github.com/vapor/leaf", .upToNextMajor(from: "4.0.0")){{/leaf}}
     ],
     targets: [
