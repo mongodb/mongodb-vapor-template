@@ -7,7 +7,7 @@ let package = Package(
         .macOS(.v12)
     ],
     dependencies: [
-        .package(url: "https://github.com/vapor/vapor", .upToNextMajor(from: "4.5.0")),
+        .package(url: "https://github.com/vapor/vapor", .upToNextMajor(from: "4.50.0")),
         .package(url: "https://github.com/mongodb/mongodb-vapor", .branch("async-await")){{#leaf}},
         .package(url: "https://github.com/vapor/leaf", .upToNextMajor(from: "4.0.0")){{/leaf}}
     ],
