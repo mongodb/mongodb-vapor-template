@@ -22,7 +22,7 @@ func routes(_ app: Application) throws {
     app.get { req async throws -> [Kitten] in{{/leaf}}{{#leaf}}
         let kittens = try await req.kittenCollection.find().toArray()
         return try await req.view.render("index.leaf", ["kittens": kittens]){{/leaf}}{{^leaf}}
-        try await req.kittenCollection.find().toArray(){{^leaf}}
+        try await req.kittenCollection.find().toArray(){{/leaf}}
     }
 
     // A POST request will create a new kitten in the database.
